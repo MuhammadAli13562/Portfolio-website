@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.section-link {
+  @apply h-8 p-4 text-[14px] rounded-2xl bg-gray-700  text-gray-500 font-russo flex justify-center items-center;
+  color: #b5b5c7;
+}
+
+.section-transition {
+  @apply transition-all duration-500 ease-in-out opacity-100;
+}
+
+.ticker-label {
+  @apply text-5xl font-orbitron font-bold text-black z-50;
+}
+
+.firstsection,
+.secondsection,
+.thirdsection {
+  background-color: #9393a2;
+  opacity: 1;
+  background-image: radial-gradient(
+    ellipse farthest-corner at 4px 4px,
+    #7e7e7e,
+    #7e7e7e 50%,
+    #9393a2 50%
+  );
+  background-size: 4px 4px;
+}
+
+.primary-color {
+  @apply text-gray-700;
+}
+.primary-color-bg {
+  @apply bg-gray-700;
+}
+
+.Ticker-frontend {
+  color: #9393a2;
+}
+
+.Ticker-backend {
+  color: #9393a2;
+}
+
+.firstsectionbg,
+.secondsectionbg {
+  background-color: rgba(55, 65, 81, 1);
+  opacity: 1;
+  background-image: linear-gradient(135deg, #7e7e7e 25%, transparent 25%),
+    linear-gradient(225deg, #7e7e7e 25%, transparent 25%),
+    linear-gradient(45deg, #7e7e7e 25%, transparent 25%),
+    linear-gradient(315deg, #7e7e7e 25%, rgba(55, 65, 81, 1) 25%);
+  background-position: 4px 0, 4px 0, 0 0, 0 0;
+  background-size: 4px 4px;
+  background-repeat: repeat;
+}
+
+/* .firstsectionbg {
+  background-color: rgba(55, 65, 81, 1);
+  opacity: 1;
+  background-color: rgba(55, 65, 81, 1);
+  opacity: 1;
+  background-image: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 1) 25%,
+      transparent 25%
+    ),
+    linear-gradient(225deg, rgba(0, 0, 0, 1) 25%, transparent 25%),
+    linear-gradient(45deg, rgba(0, 0, 0, 1) 25%, transparent 25%),
+    linear-gradient(315deg, rgba(0, 0, 0, 1) 25%, rgba(55, 65, 81, 1) 25%);
+  background-position: 4px 0, 4px 0, 0 0, 0 0;
+  background-size: 4px 4px;
+  background-repeat: repeat;
+} */
