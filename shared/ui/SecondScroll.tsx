@@ -13,10 +13,10 @@ const SecondScroll = () => {
       </div>
       <div className="flex flex-col gap-[250px] mt-32">
         <div className="w-full text-center ">
-          <FrontEnd_Ticker stack={frontendstack} duration={20} />
+          <FrontEnd_Ticker stack={frontendstack} duration={8} />
         </div>
         <div className="w-full text-center ">
-          <BackEnd_Ticker stack={backendstack} duration={20} />
+          <BackEnd_Ticker stack={backendstack} duration={10} />
         </div>
       </div>
     </div>

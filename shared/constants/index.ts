@@ -3,7 +3,6 @@ const frontendstack = [
   "NextJS - ",
   "Tailwind CSS - ",
   "Shadcn UI - ",
-  "Bootstrap - ",
 ];
 const backendstack = [
   "NodeJS - ",
