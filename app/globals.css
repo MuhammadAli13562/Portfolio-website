@@ -24,6 +24,14 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+
+  overflow-y: hidden;
+  cursor: none;
+  scrollbar-width: none;
+}
+
+body ::-webkit-scrollbar {
+  display: none;
 }
 
 @layer utilities {
@@ -31,10 +39,40 @@ body {
     text-wrap: balance;
   }
 }
-
+.section-link-bg {
+  background-color: #0a0a0b;
+  opacity: 0.8;
+  background-size: 6px 6px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #545684 0,
+    #545684 0.6000000000000001px,
+    #0a0a0b 0,
+    #0a0a0b 50%
+  );
+}
 .section-link {
-  @apply h-8 p-4 text-[14px] rounded-2xl bg-gray-700  text-gray-500 font-russo flex justify-center items-center;
+  @apply h-8 p-4 text-[14px]  border-black border-solid hover:text-gray-900 hover:bg-white  text-gray-500 font-russo flex justify-center items-center;
   color: #b5b5c7;
+}
+
+.projectsbg {
+  background-color: #4c4c5c;
+  opacity: 1;
+  background-image: linear-gradient(
+      #485783 0.6000000000000001px,
+      transparent 0.6000000000000001px
+    ),
+    linear-gradient(
+      to right,
+      #485783 0.6000000000000001px,
+      #4c4c5c 0.6000000000000001px
+    );
+  background-size: 12px 12px;
+}
+
+.active-section-link {
+  @apply bg-white text-gray-900;
 }
 
 .section-transition {
@@ -47,7 +85,8 @@ body {
 
 .firstsection,
 .secondsection,
-.thirdsection {
+.thirdsection,
+.fourthsection {
   background-color: #9393a2;
   opacity: 1;
   background-image: radial-gradient(
@@ -87,20 +126,37 @@ body {
   background-repeat: repeat;
 }
 
-/* .firstsectionbg {
-  background-color: rgba(55, 65, 81, 1);
-  opacity: 1;
-  background-color: rgba(55, 65, 81, 1);
-  opacity: 1;
-  background-image: linear-gradient(
-      135deg,
-      rgba(0, 0, 0, 1) 25%,
-      transparent 25%
-    ),
-    linear-gradient(225deg, rgba(0, 0, 0, 1) 25%, transparent 25%),
-    linear-gradient(45deg, rgba(0, 0, 0, 1) 25%, transparent 25%),
-    linear-gradient(315deg, rgba(0, 0, 0, 1) 25%, rgba(55, 65, 81, 1) 25%);
-  background-position: 4px 0, 4px 0, 0 0, 0 0;
-  background-size: 4px 4px;
-  background-repeat: repeat;
-} */
+.cursor {
+  position: fixed;
+  pointer-events: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: greenyellow;
+  z-index: 100;
+  transition: width 0.3s ease, height 0.3s ease, border-radius 0.3s ease;
+}
+
+.cursor-hover-zoom {
+  background-color: greenyellow;
+  opacity: 0.5;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+
+.fourthsectionbg {
+  background-color: #3d5579;
+  opacity: 0.8;
+  background-image: radial-gradient(
+    ellipse farthest-corner at 5px 5px,
+    #1e1f33,
+    #1e1f33 50%,
+    #3d5579 50%
+  );
+  background-size: 5px 5px;
+}
+
+.place-center {
+  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+}

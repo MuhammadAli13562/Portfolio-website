@@ -1,4 +1,7 @@
-import { motion } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
+import { useEffect, useState } from "react";
+import { sections } from "../constants";
+import { handleHoverBegin, handleHoverEnd } from "../utils/cursor";
 
 const Navbar = () => {
   const handleScroll = (id: string) => {
@@ -6,53 +9,83 @@ const Navbar = () => {
       behavior: "smooth",
     });
   };
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollYProgress = window.scrollY;
+
+      // Determine which section is in view based on scroll position
+      let activeSectionId = activeSection;
+      sections.forEach((sectionId) => {
+        const section = document.getElementById(sectionId);
+        const top = section?.offsetTop;
+        const height = section?.offsetHeight;
+        if (scrollYProgress >= top! && scrollYProgress < top! + height!) {
+          activeSectionId = sectionId;
+        }
+      });
+
+      // Update activeSection state
+      setActiveSection(activeSectionId);
+    };
+
+    // Add scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    handleScroll();
+    // Remove event listener on component unmount
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []); // Empty dependency array to run the effect only once
 
   return (
     <motion.div
       transition={{ duration: 2 }}
-      className="z-10 fixed bottom-0 p-8 flex text-white w-full font-mono justify-center gap-8 items-center transition-all duration-300"
+      className="z-10 fixed transform rotate-90  -right-[175px] top-[240px] flex text-white  font-mono justify-start  items-center"
+      onHoverStart={handleHoverBegin}
+      onHoverEnd={handleHoverEnd}
     >
-      <div className=" flex gap-2">
-        <a
-          href="#intro"
-          className="section-link"
+      <div className=" flex  gap-2  section-link-bg">
+        <div
+          className={`section-link ${
+            activeSection === "intro" && "active-section-link"
+          }`}
           onClick={(e) => {
-            e.preventDefault(); // Prevent default anchor behavior
             handleScroll("#intro");
           }}
         >
           Intro
-        </a>
-        <a
-          href="#techstack"
-          className="section-link"
+        </div>
+        <div
+          className={`section-link ${
+            activeSection === "techstack" && "active-section-link"
+          }`}
           onClick={(e) => {
-            e.preventDefault();
             handleScroll("#techstack");
           }}
         >
           Tech Stack
-        </a>
-        <a
-          href="#projects"
-          className="section-link"
+        </div>
+        <div
+          className={`section-link ${
+            activeSection === "projects" && "active-section-link"
+          }`}
           onClick={(e) => {
-            e.preventDefault();
             handleScroll("#projects");
           }}
         >
           Projects
-        </a>
-        <a
-          href="#contactme"
-          className="section-link"
+        </div>
+        <div
+          className={`section-link ${
+            activeSection === "contactme" && "active-section-link"
+          }`}
           onClick={(e) => {
-            e.preventDefault(); // Prevent default anchor behavior
             handleScroll("#contactme");
           }}
         >
-          Contact me
-        </a>
+          Contact
+        </div>
       </div>
     </motion.div>
   );

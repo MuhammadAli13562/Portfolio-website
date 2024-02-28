@@ -5,10 +5,9 @@ const ThridScroll = () => {
     <AnimatePresence>
       <motion.div
         id="projects"
-        key="sec3"
-        className="thirdsection section-transition flex justify-center items-center h-screen bg-red-400"
+        className="relative thirdsection section-transition flex justify-center items-center h-screen "
       >
-        ThridScroll
+        Projects
       </motion.div>
     </AnimatePresence>
   );

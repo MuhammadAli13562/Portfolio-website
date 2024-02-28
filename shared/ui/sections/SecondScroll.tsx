@@ -1,5 +1,5 @@
-import { backendstack, frontendstack } from "../constants";
-import { BackEnd_Ticker, FrontEnd_Ticker } from "./TechStack_Ticker";
+import { backendstack, frontendstack } from "../../constants";
+import { BackEnd_Ticker, FrontEnd_Ticker } from "../TechStack_Ticker";
 
 const SecondScroll = () => {
   return (

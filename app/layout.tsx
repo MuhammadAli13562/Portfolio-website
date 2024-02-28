@@ -6,6 +6,7 @@ import {
   Russo_One,
 } from "next/font/google";
 import "./globals.css";
+import Cursor from "@/shared/ui/Cursor";
 
 const herrvon_font = Herr_Von_Muellerhoff({
   subsets: ["latin"],
@@ -48,7 +49,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${RussoOne_font.variable} ${Orbitron_font.variable} ${monoton_font.variable} ${herrvon_font.variable} overflow-x-hidden select-none`}
+        className={` ${RussoOne_font.variable} ${Orbitron_font.variable} ${monoton_font.variable} ${herrvon_font.variable} overflow-x-hidden select-none`}
       >
         {children}
       </body>

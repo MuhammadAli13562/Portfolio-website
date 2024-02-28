@@ -1,21 +1,25 @@
 "use client";
 
-import FirstScroll from "@/shared/ui/FirstScroll";
-import FourthScroll from "@/shared/ui/FourthScroll";
+import Cursor from "@/shared/ui/Cursor";
 import Intro from "@/shared/ui/Intro";
 import Navbar from "@/shared/ui/Navbar";
-import SecondScroll from "@/shared/ui/SecondScroll";
-import ThridScroll from "@/shared/ui/ThridScroll";
+import {
+  FirstScroll,
+  FourthScroll,
+  SecondScroll,
+  ThridScroll,
+} from "@/shared/ui/sections";
 
 export default function Home() {
   return (
-    <div>
+    <div className="relative">
       <Intro />
       <Navbar />
       <FirstScroll />
       <SecondScroll />
       <ThridScroll />
       <FourthScroll />
+      <Cursor />
     </div>
   );
 }
