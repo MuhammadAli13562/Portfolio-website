@@ -1,91 +1,64 @@
-import { motion, useScroll } from "framer-motion";
-import { useEffect, useState } from "react";
-import { sections } from "../constants";
+import {
+  AnimationControls,
+  motion,
+  useAnimationControls,
+  useScroll,
+} from "framer-motion";
+import { navlinks } from "../constants";
 import { handleHoverBegin, handleHoverEnd } from "../utils/cursor";
 
-const Navbar = () => {
-  const handleScroll = (id: string) => {
-    document.querySelector(id)?.scrollIntoView({
-      behavior: "smooth",
+const Navbar = ({
+  thirdAnimationControls,
+}: {
+  thirdAnimationControls: AnimationControls;
+}) => {
+  const animateControls = useAnimationControls();
+  const handleClickNavbarLink = (id: string, index: number) => {
+    // Floating Tablet Animation
+    animateControls.start({
+      x: 80 * index + 8,
+      transition: { duration: 0.3, ease: "linear" },
     });
+
+    // Scrolling To the requested section
+    document.querySelector(id)?.scrollIntoView({
+      behavior: "instant",
+    });
+
+    // if reach end of scroll translate last div upwards
   };
-  const [activeSection, setActiveSection] = useState("");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollYProgress = window.scrollY;
-
-      // Determine which section is in view based on scroll position
-      let activeSectionId = activeSection;
-      sections.forEach((sectionId) => {
-        const section = document.getElementById(sectionId);
-        const top = section?.offsetTop;
-        const height = section?.offsetHeight;
-        if (scrollYProgress >= top! && scrollYProgress < top! + height!) {
-          activeSectionId = sectionId;
-        }
-      });
-
-      // Update activeSection state
-      setActiveSection(activeSectionId);
-    };
-
-    // Add scroll event listener
-    window.addEventListener("scroll", handleScroll);
-
-    handleScroll();
-    // Remove event listener on component unmount
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []); // Empty dependency array to run the effect only once
 
   return (
     <motion.div
-      transition={{ duration: 2 }}
-      className="z-10 fixed transform rotate-90  -right-[175px] top-[240px] flex text-white  font-mono justify-start  items-center"
+      id="navbar"
+      className="z-10 fixed bg-gray-800 px-2 bottom-2 right-1/2 translate-x-1/2 rounded-full transform  font-mono row-center "
       onHoverStart={handleHoverBegin}
       onHoverEnd={handleHoverEnd}
     >
-      <div className=" flex  gap-2  section-link-bg">
-        <div
-          className={`section-link ${
-            activeSection === "intro" && "active-section-link"
-          }`}
-          onClick={(e) => {
-            handleScroll("#intro");
-          }}
-        >
-          Intro
-        </div>
-        <div
-          className={`section-link ${
-            activeSection === "techstack" && "active-section-link"
-          }`}
-          onClick={(e) => {
-            handleScroll("#techstack");
-          }}
-        >
-          Tech Stack
-        </div>
-        <div
-          className={`section-link ${
-            activeSection === "projects" && "active-section-link"
-          }`}
-          onClick={(e) => {
-            handleScroll("#projects");
-          }}
-        >
-          Projects
-        </div>
-        <div
-          className={`section-link ${
-            activeSection === "contactme" && "active-section-link"
-          }`}
-          onClick={(e) => {
-            handleScroll("#contactme");
-          }}
-        >
-          Contact
-        </div>
+      {/** FLOATING TABLET  */}
+      <div className="absolute w-full z-50  pointer-events-none">
+        <motion.div
+          initial={{ x: 8 }}
+          animate={animateControls}
+          className="w-[80px] h-[25px] rounded-full opacity-30 bg-gray-400 "
+        ></motion.div>
+      </div>
+
+      {/** NAVBAR LINKS  */}
+      <div className="flex">
+        {navlinks.map((navlink, index) => {
+          const href = navlink.toLowerCase().replace(/\s/g, "");
+          return (
+            <motion.div
+              className="w-[80px] h-8 text-[14px] font-russo  row-center text-gray-400 "
+              onClick={() => {
+                handleClickNavbarLink("#" + href, index);
+              }}
+            >
+              {navlink}
+            </motion.div>
+          );
+        })}
       </div>
     </motion.div>
   );

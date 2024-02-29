@@ -1,3 +1,19 @@
+import OneFront from "@/public/project/Ecommerce-app/frontpage.png";
+import twoFront from "@/public/project/social-media-app/explore.png";
+
+import {
+  node,
+  react,
+  tailwind,
+  nextjs,
+  appwrite,
+  sanity,
+  firebase,
+  matui,
+  framer,
+} from "@/public/stack";
+import { StaticImageData } from "next/image";
+
 const frontendstack = [
   "ReactJS - ",
   "NextJS - ",
@@ -20,10 +36,7 @@ const skills = [
   "UI/UX Design",
 ];
 
-const sections = ["intro", "techstack", "projects", "contactme"];
-
-import OneFront from "@/public/project/Ecommerce-app/frontpage.png";
-import twoFront from "@/public/project/social-media-app/explore.png";
+const sections = ["intro", "techstack", "projects", "contact"];
 
 const projects = [
   {
@@ -38,4 +51,18 @@ const projects = [
   },
 ];
 
-export { frontendstack, backendstack, skills, sections, projects };
+const frontendlogos = [react, nextjs, matui, framer, tailwind];
+const backendlogos = [appwrite, node, firebase, sanity as StaticImageData];
+
+export {
+  frontendstack,
+  frontendlogos,
+  backendlogos,
+  backendstack,
+  skills,
+  sections,
+  projects,
+};
+
+const navlinks = ["INTRO", "TECH", "WORK", "CONTACT"];
+export { navlinks };

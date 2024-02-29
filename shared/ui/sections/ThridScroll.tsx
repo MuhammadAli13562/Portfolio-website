@@ -1,10 +1,20 @@
-import { AnimatePresence, motion } from "framer-motion";
+import {
+  AnimatePresence,
+  AnimationControls,
+  motion,
+  useAnimationControls,
+} from "framer-motion";
 
-const ThridScroll = () => {
+const ThridScroll = ({
+  thirdAnimationControls,
+}: {
+  thirdAnimationControls: AnimationControls;
+}) => {
   return (
     <AnimatePresence>
       <motion.div
-        id="projects"
+        id="work"
+        animate={thirdAnimationControls}
         className="relative thirdsection section-transition flex justify-center items-center h-screen "
       >
         Projects

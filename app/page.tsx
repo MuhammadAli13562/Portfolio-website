@@ -9,16 +9,26 @@ import {
   SecondScroll,
   ThridScroll,
 } from "@/shared/ui/sections";
+import { useAnimationControls } from "framer-motion";
+import { useEffect } from "react";
 
 export default function Home() {
+  const thirdAnimationControls = useAnimationControls();
+  useEffect(() => {
+    // On any reload , scroll to the top
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="relative">
       <Intro />
-      <Navbar />
+      <Navbar thirdAnimationControls={thirdAnimationControls} />
       <FirstScroll />
       <SecondScroll />
-      <ThridScroll />
+
+      <ThridScroll thirdAnimationControls={thirdAnimationControls} />
       <FourthScroll />
+
       <Cursor />
     </div>
   );

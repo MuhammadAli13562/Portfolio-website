@@ -1,25 +1,56 @@
-import { backendstack, frontendstack } from "../../constants";
+import { backendlogos, frontendlogos } from "../../constants";
 import { BackEnd_Ticker, FrontEnd_Ticker } from "../TechStack_Ticker";
+import { motion, useAnimationControls } from "framer-motion";
 
 const SecondScroll = () => {
+  const labelAnimate = useAnimationControls();
+  const tickerAnimate = useAnimationControls();
+
+  const onInViewLabel = () => {};
+
+  const onLeaveViewLabel = () => {};
+
   return (
-    <div
-      id="techstack"
-      className="relative flex flex-col  h-screen w-full secondsection"
-    >
-      <div className="absolute secondsectionbg border-[20px] border-solid border-black p-2 flex flex-col justify-between w-[1600px] h-[800px] left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 primary-color-bg">
-        <span className=" ticker-label">FRONT-END</span>
-        <span className=" ticker-label self-end">BACK-END</span>
-      </div>
-      <div className="flex flex-col gap-[250px] mt-32">
-        <div className="w-full text-center ">
-          <FrontEnd_Ticker stack={frontendstack} duration={8} />
-        </div>
-        <div className="w-full text-center ">
-          <BackEnd_Ticker stack={backendstack} duration={10} />
-        </div>
-      </div>
-    </div>
+    <motion.div id="tech" className="relative flex flex-col  h-screen w-full ">
+      {/* SECOND PAGE*/}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={tickerAnimate}
+        onViewportEnter={() => {
+          tickerAnimate.start({ opacity: 1, transition: { duration: 2 } });
+        }}
+        onViewportLeave={() => {
+          tickerAnimate.start({ opacity: 0, transition: { duration: 1 } });
+        }}
+        className=" flex flex-col gap-[400px] mt-12"
+      >
+        <FrontEnd_Ticker stack={frontendlogos} duration={12} />
+
+        <BackEnd_Ticker stack={backendlogos} duration={10} />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={labelAnimate}
+        onViewportEnter={() =>
+          labelAnimate.start({
+            opacity: 1,
+            x: 0,
+            transition: { duration: 0.7, type: "spring" },
+          })
+        }
+        onViewportLeave={() =>
+          labelAnimate.start({
+            opacity: 0,
+            x: -1500,
+            transition: { duration: 2 },
+          })
+        }
+        className="absolute top-[300px]  w-full font-orbitron text-[200px] text-gray-500 text-center"
+      >
+        TECH - STACK
+      </motion.div>
+    </motion.div>
   );
 };
 

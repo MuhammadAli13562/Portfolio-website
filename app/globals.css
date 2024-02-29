@@ -24,14 +24,19 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-
-  overflow-y: hidden;
-  cursor: none;
-  scrollbar-width: none;
 }
 
-body ::-webkit-scrollbar {
-  display: none;
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #ff0000;
 }
 
 @layer utilities {
@@ -40,20 +45,8 @@ body ::-webkit-scrollbar {
   }
 }
 .section-link-bg {
-  background-color: #0a0a0b;
-  opacity: 0.8;
-  background-size: 6px 6px;
-  background-image: repeating-linear-gradient(
-    45deg,
-    #545684 0,
-    #545684 0.6000000000000001px,
-    #0a0a0b 0,
-    #0a0a0b 50%
-  );
-}
-.section-link {
-  @apply h-8 p-4 text-[14px]  border-black border-solid hover:text-gray-900 hover:bg-white  text-gray-500 font-russo flex justify-center items-center;
-  color: #b5b5c7;
+  background-color: white;
+  color: #1e1f33;
 }
 
 .projectsbg {
@@ -71,16 +64,12 @@ body ::-webkit-scrollbar {
   background-size: 12px 12px;
 }
 
-.active-section-link {
-  @apply bg-white text-gray-900;
-}
-
 .section-transition {
   @apply transition-all duration-500 ease-in-out opacity-100;
 }
 
 .ticker-label {
-  @apply text-5xl font-orbitron font-bold text-black z-50;
+  @apply text-5xl font-orbitron font-bold text-gray-500 z-50;
 }
 
 .firstsection,
@@ -105,14 +94,6 @@ body ::-webkit-scrollbar {
   @apply bg-gray-700;
 }
 
-.Ticker-frontend {
-  color: #9393a2;
-}
-
-.Ticker-backend {
-  color: #9393a2;
-}
-
 .firstsectionbg,
 .secondsectionbg {
   background-color: rgba(55, 65, 81, 1);
@@ -132,14 +113,14 @@ body ::-webkit-scrollbar {
   width: 50px;
   height: 50px;
   border-radius: 25px;
-  background-color: greenyellow;
+  background-color: rgb(96, 255, 22);
   z-index: 100;
   transition: width 0.3s ease, height 0.3s ease, border-radius 0.3s ease;
 }
 
 .cursor-hover-zoom {
-  background-color: greenyellow;
-  opacity: 0.5;
+  background-color: rgb(91, 230, 4);
+  opacity: 0.3;
   width: 100px;
   height: 100px;
   border-radius: 50px;
@@ -159,4 +140,20 @@ body ::-webkit-scrollbar {
 
 .place-center {
   @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+}
+
+.col-center {
+  @apply flex flex-col items-center justify-center;
+}
+
+.row-center {
+  @apply flex justify-center items-center;
+}
+
+.test-border-black {
+  @apply border-2 border-solid border-black;
+}
+
+.test-border-white {
+  @apply border-2 border-solid border-white;
 }

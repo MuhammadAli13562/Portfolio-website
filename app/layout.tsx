@@ -51,7 +51,7 @@ export default function RootLayout({
       <body
         className={` ${RussoOne_font.variable} ${Orbitron_font.variable} ${monoton_font.variable} ${herrvon_font.variable} overflow-x-hidden select-none`}
       >
-        {children}
+        <div className="body-child">{children}</div>
       </body>
     </html>
   );
