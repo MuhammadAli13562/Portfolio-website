@@ -10,13 +10,14 @@ import {
   ThridScroll,
 } from "@/shared/ui/sections";
 import { useAnimationControls } from "framer-motion";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function Home() {
   const thirdAnimationControls = useAnimationControls();
+  const router = useRouter();
   useEffect(() => {
-    // On any reload , scroll to the top
-    window.scrollTo(0, 0);
+    router.push("/");
   }, []);
 
   return (

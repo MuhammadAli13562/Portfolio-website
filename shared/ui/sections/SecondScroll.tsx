@@ -6,10 +6,6 @@ const SecondScroll = () => {
   const labelAnimate = useAnimationControls();
   const tickerAnimate = useAnimationControls();
 
-  const onInViewLabel = () => {};
-
-  const onLeaveViewLabel = () => {};
-
   return (
     <motion.div id="tech" className="relative flex flex-col  h-screen w-full ">
       {/* SECOND PAGE*/}
