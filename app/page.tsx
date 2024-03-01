@@ -21,15 +21,13 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative sections-container">
       <Intro />
-      <Navbar thirdAnimationControls={thirdAnimationControls} />
+      <Navbar />
       <FirstScroll />
       <SecondScroll />
-
-      <ThridScroll thirdAnimationControls={thirdAnimationControls} />
+      <ThridScroll />
       <FourthScroll />
-
       <Cursor />
     </div>
   );

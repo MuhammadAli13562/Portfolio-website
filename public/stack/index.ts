@@ -18,3 +18,11 @@ export {
   react,
   nextjs,
 };
+
+import fiverr1 from "../worklogos/fiverr-1.svg";
+import fiverr2 from "../worklogos/fiverr-2.svg";
+import github from "../worklogos/githubw.png";
+import gmail from "../worklogos/gmail.png";
+import upwork from "../worklogos/upworkc.svg";
+
+export { fiverr1, fiverr2, github, gmail, upwork };

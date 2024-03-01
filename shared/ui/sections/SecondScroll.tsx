@@ -7,13 +7,19 @@ const SecondScroll = () => {
   const tickerAnimate = useAnimationControls();
 
   return (
-    <motion.div id="tech" className="relative flex flex-col  h-screen w-full ">
+    <motion.div
+      id="tech"
+      className="sections relative flex flex-col  h-screen w-full "
+    >
       {/* SECOND PAGE*/}
       <motion.div
         initial={{ opacity: 0 }}
         animate={tickerAnimate}
         onViewportEnter={() => {
-          tickerAnimate.start({ opacity: 1, transition: { duration: 2 } });
+          tickerAnimate.start({
+            opacity: 1,
+            transition: { delay: 0.8, duration: 2 },
+          });
         }}
         onViewportLeave={() => {
           tickerAnimate.start({ opacity: 0, transition: { duration: 1 } });
@@ -26,23 +32,26 @@ const SecondScroll = () => {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0 }}
         animate={labelAnimate}
-        onViewportEnter={() =>
+        onViewportEnter={() => {
           labelAnimate.start({
-            opacity: 1,
-            x: 0,
-            transition: { duration: 0.7, type: "spring" },
-          })
-        }
+            opacity: [1, 1, 0.1],
+            x: [-1500, 0, 0], // Animation properties
+            transition: {
+              duration: 3,
+              times: [0, 0.05, 1],
+              type: "just",
+            },
+          });
+        }}
         onViewportLeave={() =>
           labelAnimate.start({
             opacity: 0,
             x: -1500,
-            transition: { duration: 2 },
+            transition: { duration: 0 },
           })
         }
-        className="absolute top-[300px]  w-full font-orbitron text-[200px] text-gray-500 text-center"
+        className="absolute top-[300px] bg-white  w-full font-orbitron text-[200px] text-black text-center"
       >
         TECH - STACK
       </motion.div>

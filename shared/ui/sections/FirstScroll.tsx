@@ -27,16 +27,28 @@ const FirstScroll = () => {
       id="intro"
       initial={{ opacity: 0 }}
       animate={controls}
-      className="relative h-screen w-full firstsection"
+      className="sections overflow-hidden relative h-screen w-full bg-gray-400"
     >
       {/** NAME HEADING */}
       <motion.div
         onViewportEnter={onEntry}
         onViewportLeave={onLeave}
-        className="flex pt-12 flex-col bg-black font-monoton text-gray-500 pl-4 bg-gray-00 pb-12"
+        className="flex pt-12 flex-col bg-black font-monoton text-gray-400 pl-4 bg-gray-00 pb-12"
       >
-        <span className="text-[200px]/[200px]">MUHAMMAD</span>
-        <span className="text-[200px]/[200px] pl-[30px]">ALI </span>
+        <motion.span
+          initial={{ x: -1500 }}
+          animate={{ x: 0, transition: { delay: 2, duration: 0.5 } }}
+          className="text-[200px]/[200px]"
+        >
+          MUHAMMAD
+        </motion.span>
+        <motion.span
+          initial={{ x: +2500 }}
+          animate={{ x: 0, transition: { delay: 2, duration: 0.5 } }}
+          className="text-[200px]/[200px] pl-[0px]"
+        >
+          ALI{" "}
+        </motion.span>
       </motion.div>
 
       {/** SKILLS */}
@@ -61,7 +73,7 @@ const FirstScroll = () => {
                 repeat: Infinity,
                 duration: getRandomNumber(2, 6), // Set a duration for the entire animation cycle
               }}
-              className="hover:bg-gray-300 will-change-transform font-russo  text-4xl text-black p-4 rounded-2xl bg-gray-500   text-center"
+              className="hover:bg-gray-300 will-change-transform font-russo  text-4xl text-black p-4 rounded-2xl bg-gray-300   text-center"
               onHoverStart={handleHoverBegin}
               onHoverEnd={handleHoverEnd}
             >

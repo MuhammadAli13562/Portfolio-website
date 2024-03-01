@@ -7,11 +7,7 @@ import {
 import { navlinks } from "../constants";
 import { handleHoverBegin, handleHoverEnd } from "../utils/cursor";
 
-const Navbar = ({
-  thirdAnimationControls,
-}: {
-  thirdAnimationControls: AnimationControls;
-}) => {
+const Navbar = () => {
   const animateControls = useAnimationControls();
   const handleClickNavbarLink = (id: string, index: number) => {
     // Floating Tablet Animation
