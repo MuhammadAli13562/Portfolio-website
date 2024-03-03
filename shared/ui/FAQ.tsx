@@ -1,39 +1,46 @@
-import { motion, useAnimationControls } from "framer-motion";
+import { AnimationControls, motion, useAnimationControls } from "framer-motion";
 
 const FAQ = ({
   FAQcontent,
+  WorklinksControls,
 }: {
   FAQcontent: { question: string; answer: string }[];
+  WorklinksControls: AnimationControls;
 }) => {
   const Qcontrols = useAnimationControls();
   const Acontrols = useAnimationControls();
-  const handleInViewFAQ = (index: number, offset: number) => {
-    console.log("index :", index);
+  const handleInViewFAQ = () => {
+    Qcontrols.start({
+      opacity: 1,
+      transition: { delay: 0, duration: 1 },
+    });
 
-    if (offset === 0) {
-      const delay = 0.5 * index;
-      console.log("Q delay : ", delay);
-
-      Qcontrols.start({
-        opacity: 1,
-        transition: { delay, duration: 1 },
-      });
-    } else {
-      const delay = offset + 0.5 * index;
-      console.log("A delay :", delay);
-
-      Acontrols.start({
-        opacity: 1,
-        transition: { delay, duration: 1 },
-      });
-    }
+    Acontrols.start({
+      opacity: 1,
+      transition: { delay: 0.5, duration: 1 },
+    });
   };
-
+  const showWorkLinks = () => {
+    WorklinksControls.start({
+      opacity: 1,
+      transition: { duration: 2 },
+    });
+  };
+  const hideWorkLinks = () => {
+    WorklinksControls.start({
+      opacity: 0,
+      transition: { duration: 0 },
+    });
+  };
   return (
     <div className="w-2/4  flex flex-col gap-8 ">
       {FAQcontent.map((faq, index) => {
         return (
-          <div className="flex flex-col gap-12">
+          <motion.div
+            onViewportEnter={showWorkLinks}
+            onViewportLeave={hideWorkLinks}
+            className="flex flex-col gap-12"
+          >
             <div className="flex gap-4">
               <div className="border-2 border-gray-600 text-gray-600 text-[18px] font-bold rounded-xl w-8 text-center h-[30px]">
                 {index + 1}
@@ -42,23 +49,23 @@ const FAQ = ({
                 <motion.span
                   initial={{ opacity: 0 }}
                   animate={Qcontrols}
-                  onViewportEnter={() => handleInViewFAQ(index, 0)}
-                  className="text-2xl font-medium text-gray-300"
+                  onViewportEnter={() => handleInViewFAQ()}
+                  className="text-xl lg:text-2xl xl:text-3xl font-medium text-gray-300"
                 >
                   {faq.question}
                 </motion.span>
                 <motion.span
                   initial={{ opacity: 0 }}
                   animate={Acontrols}
-                  onViewportEnter={() => handleInViewFAQ(index, 1)}
-                  className="text-xl text-gray-500"
+                  onViewportEnter={() => handleInViewFAQ()}
+                  className="text-md lg:text-xl xl:text-2xl text-gray-500"
                 >
                   {faq.answer}
                 </motion.span>
               </div>
             </div>
-            <span className=" border-b-[1px] w-[900px] border-gray-700"></span>
-          </div>
+            <span className=" border-b-[1px]  border-gray-700"></span>
+          </motion.div>
         );
       })}
     </div>

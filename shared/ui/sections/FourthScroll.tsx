@@ -9,28 +9,6 @@ const FourthScroll = () => {
 
   const HeadingControls = useAnimationControls();
   const WorklinksControls = useAnimationControls();
-  const bottombarControls = useAnimationControls();
-
-  const showWorkLinks = () => {
-    WorklinksControls.start({
-      opacity: 1,
-      transition: { duration: 2 },
-    });
-    bottombarControls.start({
-      opacity: 1,
-      transition: { duration: 1 },
-    });
-  };
-  const hideWorkLinks = () => {
-    WorklinksControls.start({
-      opacity: 0,
-      transition: { duration: 0 },
-    });
-    bottombarControls.start({
-      opacity: 0,
-      transition: { duration: 0.2 },
-    });
-  };
 
   const handleViewEnter = () => {
     HeadingControls.start({
@@ -50,24 +28,18 @@ const FourthScroll = () => {
   return (
     <motion.div
       id="contact"
-      onViewportEnter={() => {
-        handleViewEnter();
-        showWorkLinks();
-      }}
-      onViewportLeave={() => {
-        handleViewLeave();
-        hideWorkLinks();
-      }}
+      onViewportEnter={handleViewEnter}
+      onViewportLeave={handleViewLeave}
       className="relative sections fourthscroll section-transition flex flex-col gap-24 items-center h-[100vh]"
     >
       <motion.div
         initial={{ opacity: 0 }}
-        animate={HeadingControls}
-        className="font-sans font-semibold text-8xl w-3/5 text-center mt-12 text-gray-500"
+        animate={{ opacity: 1 }}
+        className="font-sans font-semibold text-4xl md:text-6xl lg:text-7xl lg:w-4/5 xl:text-8xl w-full text-center mt-12 text-gray-500"
       >
         {contactheading}
       </motion.div>
-      <FAQ FAQcontent={FAQcontent} />
+      <FAQ FAQcontent={FAQcontent} WorklinksControls={WorklinksControls} />
       <WorkLinksBar WorklinksControls={WorklinksControls} />
     </motion.div>
   );

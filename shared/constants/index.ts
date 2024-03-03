@@ -33,7 +33,6 @@ const skills = [
   "Backend Integrations",
   "System Design",
   "Full Stack Development",
-  "UI/UX Design",
 ];
 
 const sections = ["intro", "techstack", "projects", "contact"];

@@ -10,10 +10,10 @@ const ThridScroll = () => {
     <AnimatePresence>
       <motion.div
         id="work"
-        className="sections relative thirdsection section-transition flex justify-center items-center h-[101vh] "
+        className="row-center  relative thirdsection section-transition  h-screen "
       >
-        <div className="text-8xl font-russo text-gray-600 w-1/3">
-          Under Maintainence
+        <div className="text-5xl lg:text-8xl md:text-6xl font-russo text-gray-600 w-1/3">
+          Under Construction
         </div>
       </motion.div>
     </AnimatePresence>

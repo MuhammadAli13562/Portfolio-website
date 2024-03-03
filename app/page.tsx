@@ -22,7 +22,6 @@ export default function Home() {
 
   return (
     <div className="relative sections-container">
-      <Intro />
       <Navbar />
       <FirstScroll />
       <SecondScroll />
