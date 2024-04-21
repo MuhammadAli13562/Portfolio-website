@@ -18,11 +18,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
     rgb(var(--background-start-rgb));
   overflow-y: hidden;
 }
@@ -119,4 +115,8 @@ body {
 
 .section-no-scroll {
   @apply overflow-y-hidden;
+}
+
+.project-btn {
+  @apply font-russo text-gray-400 border-[0.1rem] border-gray-600  hover:bg-gray-900 col-center w-[6rem]  h-[3rem]  p-4;
 }

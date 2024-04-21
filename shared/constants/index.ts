@@ -1,5 +1,6 @@
-import OneFront from "@/public/project/Ecommerce-app/frontpage.png";
-import twoFront from "@/public/project/social-media-app/explore.png";
+import store from "@/public/project/store.png";
+import chat from "@/public/project/chat.png";
+import social from "@/public/project/social.png";
 
 import {
   node,
@@ -14,19 +15,8 @@ import {
 } from "@/public/stack";
 import { StaticImageData } from "next/image";
 
-const frontendstack = [
-  "ReactJS - ",
-  "NextJS - ",
-  "Tailwind CSS - ",
-  "Shadcn UI - ",
-];
-const backendstack = [
-  "NodeJS - ",
-  "Firebase - ",
-  "Sanity IO - ",
-  "Appwrite - ",
-  "Payload - ",
-];
+const frontendstack = ["ReactJS - ", "NextJS - ", "Tailwind CSS - ", "Shadcn UI - "];
+const backendstack = ["NodeJS - ", "Firebase - ", "Sanity IO - ", "Appwrite - ", "Payload - "];
 
 const skills = [
   "Frontend Development",
@@ -37,31 +27,10 @@ const skills = [
 
 const sections = ["intro", "techstack", "projects", "contact"];
 
-const projects = [
-  {
-    image: OneFront,
-    heading: "NextJS - SANITY - STRIPE ECOMMERCE APP",
-    details: "",
-  },
-  {
-    image: twoFront,
-    heading: "REACT - PAYLOAD SOCIAL MEDIA APP",
-    details: "",
-  },
-];
-
 const frontendlogos = [react, nextjs, matui, framer, tailwind];
 const backendlogos = [appwrite, node, firebase, sanity as StaticImageData];
 
-export {
-  frontendstack,
-  frontendlogos,
-  backendlogos,
-  backendstack,
-  skills,
-  sections,
-  projects,
-};
+export { frontendstack, frontendlogos, backendlogos, backendstack, skills, sections };
 
 const navlinks = ["INTRO", "TECH", "WORK", "CONTACT"];
 export { navlinks };
@@ -73,7 +42,7 @@ const FAQcontent = [
   },
   {
     question: "What technologies do you use mostly ?",
-    answer: "NextJS with Sanity or Appwrite",
+    answer: "NextJS , TailwindCSS , ExpressJS , Web Sockets",
   },
 
   {
@@ -88,7 +57,7 @@ export { FAQcontent };
 
 ////////////////////////////////////////////////////////////////////
 
-import { fiverr1, fiverr2, upwork, gmail, github } from "@/public/stack";
+import { fiverr1, upwork, gmail, github } from "@/public/stack";
 
 const workLinks = [
   {
@@ -101,16 +70,46 @@ const workLinks = [
     icon: github,
     link: "https://github.com/MuhammadAli13562",
   },
-  {
-    platform: "Fiverr",
-    icon: fiverr1,
-    link: "https://www.fiverr.com/alijaved98",
-  },
-  {
-    platform: "Upwork",
-    icon: upwork,
-    link: "https://www.upwork.com/freelancers/~0160e634e61d97aa04",
-  },
 ];
 
 export { workLinks };
+
+/////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////
+
+export interface ProjectType {
+  name: string;
+  website: string;
+  code: string;
+  description: string;
+  image: StaticImageData;
+  tech: string;
+}
+
+export const ProjectsLink = [
+  {
+    name: "Ecommerce Store",
+    website: "https://ali-store-ecom.vercel.app/",
+    code: "https://github.com/MuhammadAli13562/ali-Ecommerce-Store/",
+    description: "",
+    image: store,
+    tech: "Next.js , React Context , Framer motion",
+  },
+  {
+    name: "Social Media App",
+    website: "https://insta-style-gram.vercel.app/",
+    code: "https://github.com/MuhammadAli13562/InstaStyleGram",
+    description: "",
+    image: social,
+    tech: "Next.js , React Context , Framer motion",
+  },
+  {
+    name: "Real Time Chat App",
+    website: "https://chat-app-muhammad-alis-projects-f3f603a7.vercel.app/",
+    code: "https://github.com/MuhammadAli13562/Full-stack-Chat-App",
+    description: "",
+    image: chat,
+    tech: "Next.js , React Context , Framer motion",
+  },
+];

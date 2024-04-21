@@ -36,7 +36,7 @@ const FirstScroll = () => {
         className="flex flex-col bg-black font-monoton text-gray-400 2xl:text-[13rem] xl:text-[10rem] lg:text-[9rem]  md:text-8xl sm:text-6xl text-[3rem]"
       >
         <motion.span
-          initial={{ x: -1500 }}
+          initial={{ x: -1600 }}
           animate={{ x: 0, transition: { delay: 2, duration: 0.5 } }}
           className=" "
         >
@@ -69,9 +69,7 @@ const FirstScroll = () => {
                 >
                   Javed M.
                 </span>
-                <span className="font-sans">
-                  ____________________________________________
-                </span>
+                <span className="font-sans">____________________________________________</span>
                 <span className="font-mono self-end">SIGNATURE</span>
               </div>
             </div>

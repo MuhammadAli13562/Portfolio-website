@@ -3,16 +3,12 @@ import Image from "next/image";
 import { AnimationControls, motion } from "framer-motion";
 import { handleHoverBegin, handleHoverEnd } from "../utils/cursor";
 
-const WorkLinksBar = ({
-  WorklinksControls,
-}: {
-  WorklinksControls: AnimationControls;
-}) => {
+const WorkLinksBar = ({ WorklinksControls }: { WorklinksControls: AnimationControls }) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={WorklinksControls}
-      className=" p-2 lg:p-4 scale-[0.5] lg:scale-[.7] rounded-full fixed top-1/2 transform -translate-y-1/2 left-[0] flex flex-col row-center gap-12 "
+      className=" p-2 lg:p-8 scale-[0.5] lg:scale-[.7] rounded-full fixed top-1/2 transform -translate-y-1/2 left-[0] flex flex-col row-center gap-12 "
     >
       <motion.div
         animate={{ opacity: [0.4, 0.1, 0.4] }}

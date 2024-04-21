@@ -1,54 +1,50 @@
-import Image, { StaticImageData } from "next/image";
 import React from "react";
-import { projects } from "../constants";
+import { ProjectType } from "../constants";
+import Image from "next/image";
+import { motion, useAnimate } from "framer-motion";
+import Link from "next/link";
+import { handleHoverBegin, handleHoverEnd } from "../utils/cursor";
 
-const ProjectCard = () => {
+const ProjectCard = ({ project }: { project: ProjectType }) => {
+  const [scopeImg, animateImg] = useAnimate();
+  const [scopeText, animateText] = useAnimate();
+
+  const handleHoverStartLocal = () => {
+    animateImg(scopeImg.current, { x: 0 });
+    animateText(scopeText.current, { x: 500 });
+  };
+
+  const handleHoverEndLocal = () => {
+    animateImg(scopeImg.current, { x: -400 });
+    animateText(scopeText.current, { x: 0 });
+  };
   return (
-    <div>
-      {projects.map((Project, index) =>
-        index % 2 == 0 ? (
-          <div className="flex">
-            <ImageContainer image={Project.image as any} />
-            <InfoContainer
-              InfoHeading={Project.heading}
-              InfoDetails={Project.details}
-            />
-          </div>
-        ) : (
-          <div className="flex">
-            <InfoContainer
-              InfoHeading={Project.heading}
-              InfoDetails={Project.details}
-            />
-            <ImageContainer image={Project.image as any} />
-          </div>
-        )
-      )}
-    </div>
+    <motion.div
+      onHoverStart={handleHoverStartLocal}
+      onHoverEnd={handleHoverEndLocal}
+      className="flex border-y-[0.1rem] relative border-gray-500 p-8"
+    >
+      <motion.div ref={scopeImg} initial={{ x: -400 }}>
+        <Image src={project.image} width={300} height={300} alt={project.name} />
+      </motion.div>
+      <motion.div ref={scopeText} initial={{ x: 0 }} className="absolute flex-1 col-center">
+        <h1 className="text-4xl font-russo text-gray-400">{project.name}</h1>
+        {/* <span>Tech Stack : {project.tech}</span> */}
+      </motion.div>
+      <motion.div
+        onHoverStart={handleHoverBegin}
+        onHoverEnd={handleHoverEnd}
+        className="absolute right-0 col-center gap-4 p-2"
+      >
+        <Link href={project.code} target="_blank">
+          <motion.div className="project-btn">code</motion.div>
+        </Link>
+        <Link href={project.website} target="_blank">
+          <motion.div className="project-btn ">website</motion.div>
+        </Link>
+      </motion.div>
+    </motion.div>
   );
 };
 
 export default ProjectCard;
-
-const ImageContainer = ({ image }: { image: File }) => {
-  return (
-    <div>
-      <Image src={image as any} width={200} height={200} alt="image" />
-    </div>
-  );
-};
-
-const InfoContainer = ({
-  InfoHeading,
-  InfoDetails,
-}: {
-  InfoHeading: string;
-  InfoDetails: string;
-}) => {
-  return (
-    <div>
-      <div>{InfoHeading}</div>
-      <div>{InfoDetails}</div>
-    </div>
-  );
-};

@@ -28,11 +28,6 @@ export const FrontEnd_Ticker = ({
           })}
         </Ticker>
       </div>
-      {/* <div className="absolute top-0 left-0 h-full w-[400px] ">
-        <div className="place-center text-[60px] text-gray-500 font-russo">
-          FRONTEND
-        </div>
-      </div> */}
     </div>
   );
 };
@@ -62,11 +57,6 @@ export const BackEnd_Ticker = ({
           })}
         </Ticker>
       </div>
-      {/* <div className="absolute top-0 left-0 h-full w-[400px] ">
-        <div className="place-center text-[60px] text-gray-500 font-russo">
-          BACKEND
-        </div>
-      </div> */}
     </div>
   );
 };
