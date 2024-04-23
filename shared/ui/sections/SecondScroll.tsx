@@ -32,22 +32,24 @@ const SecondScroll = () => {
           transition: { duration: 0 },
         });
       }}
-      className=" flex flex-col gap-[10rem]"
+      className=" h-[101vh] relative "
     >
-      <motion.div animate={tickerAnimate}>
-        <FrontEnd_Ticker stack={frontendlogos} duration={12} />
-      </motion.div>
-      {/** TECH STACK LABEL */}
-      <motion.div
-        animate={labelAnimate}
-        className="bg-white   w-full font-orbitron text-6xl  md:text-[5rem] lg:text-[7rem]  text-black text-center"
-      >
-        TECH - STACK
-      </motion.div>
-      {/**-------------------- */}
-      <motion.div animate={tickerAnimate}>
-        <BackEnd_Ticker stack={backendlogos} duration={10} />
-      </motion.div>
+      <div className="place-center flex flex-col gap-[5rem] xl:gap-[7rem] 2xl:gap-[10rem]">
+        <motion.div animate={tickerAnimate}>
+          <FrontEnd_Ticker stack={frontendlogos} duration={12} />
+        </motion.div>
+        {/** TECH STACK LABEL */}
+        <motion.div
+          animate={labelAnimate}
+          className="bg-white   w-full font-orbitron text-6xl  md:text-[5rem] lg:text-[7rem]  text-black text-center"
+        >
+          TECH - STACK
+        </motion.div>
+        {/**-------------------- */}
+        <motion.div animate={tickerAnimate}>
+          <BackEnd_Ticker stack={backendlogos} duration={10} />
+        </motion.div>
+      </div>
     </motion.div>
   );
 };

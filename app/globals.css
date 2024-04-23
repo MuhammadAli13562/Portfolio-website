@@ -22,10 +22,6 @@ body {
     rgb(var(--background-start-rgb));
   overflow-y: hidden;
 }
-.sections-container {
-}
-.sections {
-}
 
 /* html {
   overflow: scroll;
@@ -106,7 +102,6 @@ body {
 
 .fourthscroll {
   background-color: #1c1c1d;
-  overflow-y: auto;
 }
 
 .workbar {
@@ -119,4 +114,8 @@ body {
 
 .project-btn {
   @apply font-russo text-gray-400 border-[0.1rem] border-gray-600  hover:bg-gray-900 col-center w-[6rem]  h-[3rem]  p-4;
+}
+
+.sections {
+  overflow-y: hidden;
 }

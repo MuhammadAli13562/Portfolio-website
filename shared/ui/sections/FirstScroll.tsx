@@ -33,7 +33,8 @@ const FirstScroll = () => {
       <motion.div
         onViewportEnter={onEntry}
         onViewportLeave={onLeave}
-        className="flex flex-col bg-black font-monoton text-gray-400 2xl:text-[13rem] xl:text-[10rem] lg:text-[9rem]  md:text-8xl sm:text-6xl text-[3rem]"
+        className="flex flex-col bg-black font-monoton text-gray-400 2xl:text-[13rem] xl:text-
+        [10rem] lg:text-[9rem]  md:text-8xl sm:text-8xl text-[5rem] h-1/3 2xl:h-1/2"
       >
         <motion.span
           initial={{ x: -1600 }}
@@ -47,7 +48,7 @@ const FirstScroll = () => {
           animate={{ x: 0, transition: { delay: 2, duration: 0.5 } }}
           className=" "
         >
-          ALI{" "}
+          ALI
         </motion.span>
       </motion.div>
       <div className="flex flex-col justify-center flex-1">
@@ -99,7 +100,7 @@ const FirstScroll = () => {
                     repeat: Infinity,
                     duration: getRandomNumber(2, 6), // Set a duration for the entire animation cycle
                   }}
-                  className="hover:bg-gray-300 w-2/3 will-change-transform font-russo  text-sm md:text-3xl sm:text-2xl lg:text-4xl text-black p-4 rounded-2xl bg-gray-300   text-center"
+                  className="hover:bg-gray-300 max-w-[40vw] md:scale-[0.] lg:scale-100 will-change-transform font-russo  text-sm md:text-3xl sm:text-2xl lg:text-4xl text-black  p-0 md:p-2 lg:p-4 rounded-2xl bg-gray-300   text-center"
                   onHoverStart={handleHoverBegin}
                   onHoverEnd={handleHoverEnd}
                 >

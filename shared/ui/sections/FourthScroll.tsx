@@ -2,7 +2,6 @@ import { AnimatePresence, motion, useAnimationControls } from "framer-motion";
 import FAQ from "../FAQ";
 import { FAQcontent } from "@/shared/constants";
 import WorkLinksBar from "../WorkLinksBar";
-import BottomBar from "../BottomBar";
 
 const FourthScroll = () => {
   const contactheading = "Ready to crank out some top-notch tech 🚀?";
@@ -30,12 +29,12 @@ const FourthScroll = () => {
       id="contact"
       onViewportEnter={handleViewEnter}
       onViewportLeave={handleViewLeave}
-      className="relative sections fourthscroll section-transition flex flex-col gap-24 items-center h-[100vh]"
+      className="relative sections fourthscroll section-transition flex flex-col gap-24 items-center h-[101vh]"
     >
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="font-sans font-semibold text-4xl md:text-6xl lg:text-7xl lg:w-4/5 xl:text-8xl w-full text-center mt-12 text-gray-500"
+        className="font-sans font-semibold text-4xl md:text-6xl lg:text-7xl lg:w-4/5 xl:text-7xl 2xl:text-8xl w-full text-center pt-12 text-gray-500"
       >
         {contactheading}
       </motion.div>
